@@ -10,11 +10,66 @@ using System.Windows.Forms;
 
 namespace Snake
 {
-    public partial class Form1 : Form
+    public partial class txtScore : Form
     {
-        public Form1()
+        //skapar en lista av circle som kallas snake
+        private List<Circle> Snake = new List<Circle>();
+        //skapar en instans av klassen circle
+        private Circle food = new Circle();
+
+        int maxWith;
+        int maxHeight;
+
+        int score;
+        int highScore;
+
+        bool left, right, up, down;
+
+        Random rand = new Random();
+
+
+        public txtScore()
         {
             InitializeComponent();
+        }
+
+        private void KeyIsDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void KeyIsUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void StartGame(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GameTimerEvent(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateMapGraphics(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void RestartGame()
+        {
+
+        }
+
+        private void Eat()
+        {
+
+        }
+        private void GameOver()
+        {
+
         }
     }
 }

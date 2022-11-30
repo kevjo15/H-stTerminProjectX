@@ -18,6 +18,7 @@ namespace Snake
             //storleken av varje cirkel x & y
             height = 16;
             width = 16;
+
             //start riktning för ormen
             directions = "left";
         }

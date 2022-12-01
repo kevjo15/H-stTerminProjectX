@@ -67,7 +67,24 @@ namespace Snake
 
         private void UpdateMapGraphics(object sender, PaintEventArgs e)
         {
+            Graphics canvas = e.Graphics;
 
+            Brush snakeColour;
+
+            //går igenom snake litsan
+            for (int i = 0; i < Snake.Count; i++)
+            {
+                //första indexen i snake listan är huvudet och den blir då svart
+                if (i == 0)
+                {
+                    snakeColour = Brushes.Black;
+                }
+                else
+                {
+                    snakeColour = Brushes.Purple; // resten av kroppen blir lila
+                }
+                canvas.FillEllipse(snakeColour, new Rectangle(Snake[i].x * Settings.width, Snake[i].y * Settings.height, Settings.width, Settings.height));
+            }
         }
 
         private void RestartGame()
@@ -80,7 +97,22 @@ namespace Snake
             //om starbutton är Enable när spelet startar går de inte att använda up, ner, höger, vänster pilarna
             StartButton.Enabled = false;
             score = 0;
-            txtScore
+            txtscoore.Text = "Score: " + score;
+
+            //skapar head av instansen circle och ger han en startposition
+            Circle head = new Circle { x = 10, y = 5 };
+            Snake.Add(head); //lägger till head i listan snake
+
+            for (int i = 0; i < 10; i++)
+            {
+                //skapar objekt body av instansen circle
+                Circle body = new Circle();
+                Snake.Add(body); //lägger till body till listan snake
+            }
+            //skapar ny object food av instansen circle, och ger den en random spanpoint.
+            food = new Circle { x = rand.Next(2, maxWidth), y = rand.Next(2, maxHeight) }; //  2an här är padding från väggen
+            
+            gameTimer.Start(); // Startar speltimer
 
         }
 

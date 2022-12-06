@@ -68,17 +68,19 @@
             this.restartButton.Name = "restartButton";
             this.restartButton.Size = new System.Drawing.Size(180, 22);
             this.restartButton.Text = "Restart";
+            this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
             // 
             // exitButton
             // 
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(180, 22);
             this.exitButton.Text = "Exit";
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // StartButton
             // 
             this.StartButton.Location = new System.Drawing.Point(479, 42);
-            this.StartButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StartButton.Margin = new System.Windows.Forms.Padding(2);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(84, 46);
             this.StartButton.TabIndex = 2;
@@ -90,7 +92,7 @@
             // 
             this.picCanvas.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.picCanvas.Location = new System.Drawing.Point(30, 42);
-            this.picCanvas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picCanvas.Margin = new System.Windows.Forms.Padding(2);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(433, 325);
             this.picCanvas.TabIndex = 3;
@@ -135,7 +137,7 @@
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "txtScore";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);

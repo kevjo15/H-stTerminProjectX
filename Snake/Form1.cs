@@ -192,7 +192,7 @@ namespace Snake
             Circle head = new Circle { x = 10, y = 5 };
             Snake.Add(head); //lägger till head i listan snake
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 2; i++)
             {
                 //skapar objekt body av instansen circle
                 Circle body = new Circle();

@@ -17,13 +17,16 @@ namespace Snake
         //skapar en instans av klassen circle
         private Circle food = new Circle();
 
-        int maxWidth;
-        int maxHeight;
+        float maxWidth;
+        float maxHeight;
 
         int score;
         int highScore;
 
         bool left, right, up, down;
+
+        float velocity = 0.3f;
+        float colorTimer = 0f;
 
         Random rand = new Random();
 
@@ -86,16 +89,16 @@ namespace Snake
                     switch (Settings.directions)
                     {
                         case "left": //när ormen rör sig åt vänster tar vi bort en cirkel i X led
-                            Snake[i].x--;
+                            Snake[i].x -= 1*velocity;
                             break;
                         case "right": //när ormen rör sig åt höger lägger vi till en cirkel i X led
-                            Snake[i].x++;
+                            Snake[i].x += 1*velocity;
                             break;
                         case "up":
-                            Snake[i].y--;
+                            Snake[i].y -= 1*velocity;
                             break;
                         case "down":
-                            Snake[i].y++;
+                            Snake[i].y += 1*velocity;
                             break;
                     }
                     if (Snake[i].x < 0)
@@ -114,11 +117,12 @@ namespace Snake
                     {
                         Snake[i].y = 0;
                     }
-                    //om snakes huvud har samma position som food kallar vi på eat metoden
-                    if (Snake[i].x == food.x && Snake[i].y == food.y)
+
+                    if(Collision(Snake[i].x, food.x, 1f) && Collision(Snake[i].y, food.y, 1f))
                     {
                         Eat();
                     }
+
                     //kollar om head kolliderar med någon cirkel i body
                     for (int j = 1; j < Snake.Count; j++)
                     {
@@ -140,6 +144,11 @@ namespace Snake
             picCanvas.Invalidate();
         }
 
+        static bool Collision(float value1, float value2, float acceptableDifference)
+        {
+            return Math.Abs(value1 - value2) <= acceptableDifference;
+        }
+
         private void UpdateMapGraphics(object sender, PaintEventArgs e)
         {
             Graphics canvas = e.Graphics;
@@ -159,10 +168,17 @@ namespace Snake
                     snakeColour = Brushes.Purple; // resten av kroppen blir lila
                 }
                 //definera x och y, alltså bredden och höjden till snake
-                canvas.FillEllipse(snakeColour, new Rectangle(Snake[i].x * Settings.width, Snake[i].y * Settings.height, Settings.width, Settings.height));
+                canvas.FillEllipse(snakeColour, new Rectangle((int)(Snake[i].x * Settings.width), (int)(Snake[i].y * Settings.height), (int)Settings.width, (int)Settings.height));
             }
+            colorTimer += 0.1f;
             //definera x och y, alltså bredden och höjden till food
-            canvas.FillEllipse(Brushes.Red, new Rectangle(food.x * Settings.width, food.y * Settings.height, Settings.width, Settings.height));
+            var newBrush = Brushes.Red;
+            if(colorTimer >= 8f)
+                newBrush = Brushes.Orange;
+            if (colorTimer >= 16f)
+                newBrush = Brushes.Black;
+            if (colorTimer >= 32f) GameOver();
+            canvas.FillEllipse(newBrush, new Rectangle((int)(food.x * Settings.width), (int)(food.y * Settings.height), (int)Settings.width, (int)Settings.height));
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -178,6 +194,7 @@ namespace Snake
 
         private void RestartGame()
         {
+            colorTimer = 0f;
             //defalt values vi vill ha när spelet börjar
             maxWidth = picCanvas.Width / Settings.width - 1; // -1 är padding för ormen så den inte kommer för nära väggarna
             maxHeight = picCanvas.Height / Settings.height - 1;
@@ -192,14 +209,14 @@ namespace Snake
             Circle head = new Circle { x = 10, y = 5 };
             Snake.Add(head); //lägger till head i listan snake
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 10; i++)
             {
                 //skapar objekt body av instansen circle
                 Circle body = new Circle();
                 Snake.Add(body); //lägger till body till listan snake
             }
             //skapar ny object food av instansen circle, och ger den en random spanpoint.
-            food = new Circle { x = rand.Next(2, maxWidth), y = rand.Next(2, maxHeight) }; //  2an här är padding från väggen
+            food = new Circle { x = rand.Next(2, (int)maxWidth), y = rand.Next(2, (int)maxHeight) }; //  2an här är padding från väggen
 
             gameTimer.Start(); // Startar speltimer
 
@@ -207,6 +224,7 @@ namespace Snake
 
         private void Eat()
         {
+            colorTimer = 0f;
             score += 1;
             txtscoore.Text = "Score: " + score;
             Circle body = new Circle
@@ -216,13 +234,15 @@ namespace Snake
             };
             Snake.Add(body);
             //när du har ätit en circel så skapas en ny
-            food = new Circle { x = rand.Next(2, maxWidth), y = rand.Next(2, maxHeight) };
+            food = new Circle { x = rand.Next(2, (int)maxWidth), y = rand.Next(2, (int)maxHeight) };
 
             //varje food du äter ökar spelets hastighet
+            if (gameTimer.Interval == 1) return;
             gameTimer.Interval = gameTimer.Interval - 1;
         }
         private void GameOver()
         {
+            colorTimer = 0f;
             gameTimer.Interval = 40;
             gameTimer.Stop(); //stannar speltimern när spelet är över
             StartButton.Enabled = true; //enable start knappen igen så man kan starta ett nytt spel efter man har förlorat

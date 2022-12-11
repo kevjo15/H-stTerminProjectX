@@ -224,8 +224,8 @@ namespace Snake
 
         private void Eat()
         {
-            colorTimer = 0f;
-            score += 1;
+            colorTimer = 0f; // resets timer för äpplen att röttna
+            score += 1; // lägger till poäng för varje äpple som äts
             txtscoore.Text = "Score: " + score;
             Circle body = new Circle
             {
@@ -242,11 +242,12 @@ namespace Snake
         }
         private void GameOver()
         {
-            colorTimer = 0f;
-            gameTimer.Interval = 40;
+            colorTimer = 0f; // resets timer för äpplen att röttna
+            gameTimer.Interval = 40; //återställer spelhastiheten
             gameTimer.Stop(); //stannar speltimern när spelet är över
             StartButton.Enabled = true; //enable start knappen igen så man kan starta ett nytt spel efter man har förlorat
 
+            //skriver ut din highscore
             if (score > highScore)
             {
                 highScore = score;

@@ -176,7 +176,7 @@ namespace Snake
             if(colorTimer >= 8f)
                 newBrush = Brushes.Orange;
             if (colorTimer >= 16f)
-                newBrush = Brushes.Black;
+                newBrush = Brushes.Brown;
             if (colorTimer >= 32f) GameOver();
             canvas.FillEllipse(newBrush, new Rectangle((int)(food.x * Settings.width), (int)(food.y * Settings.height), (int)Settings.width, (int)Settings.height));
         }
@@ -239,7 +239,8 @@ namespace Snake
             //varje food du äter ökar spelets hastighet
             if (gameTimer.Interval == 1) return;
             gameTimer.Interval = gameTimer.Interval - 1;
-        }
+
+        }4
         private void GameOver()
         {
             colorTimer = 0f; // resets timer för äpplen att röttna

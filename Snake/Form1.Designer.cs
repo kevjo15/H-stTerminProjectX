@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(txtScore));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.restartButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,14 +68,14 @@
             // restartButton
             // 
             this.restartButton.Name = "restartButton";
-            this.restartButton.Size = new System.Drawing.Size(110, 22);
+            this.restartButton.Size = new System.Drawing.Size(180, 22);
             this.restartButton.Text = "Restart";
             this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
             // 
             // exitButton
             // 
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(110, 22);
+            this.exitButton.Size = new System.Drawing.Size(180, 22);
             this.exitButton.Text = "Exit";
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
@@ -92,6 +93,7 @@
             // picCanvas
             // 
             this.picCanvas.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.picCanvas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picCanvas.BackgroundImage")));
             this.picCanvas.Location = new System.Drawing.Point(30, 42);
             this.picCanvas.Margin = new System.Windows.Forms.Padding(2);
             this.picCanvas.Name = "picCanvas";

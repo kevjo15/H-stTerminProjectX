@@ -33,11 +33,26 @@ namespace Snake
         Random rand = new Random();
 
 
-
         public Form2()
         {
             InitializeComponent();
             new Settings();
+
+            /*string path = @"C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\text.txt";
+            StreamReader stream = new StreamReader(path);
+            string fileData = stream.ReadLine();
+            txtHighScore.Text = "HighScore: " + fileData;
+            stream.Close();
+
+            StreamWriter streamWriter = new StreamWriter(path);*/
+
+            using (StreamReader reader = new StreamReader(@"C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\text.txt"))
+            {
+                txtHighScore.Text = reader.ReadLine();
+            }
+
+
+
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
@@ -234,6 +249,11 @@ namespace Snake
             }
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void RestartGame()
         {
             lblGameOver.Text = "";
@@ -245,11 +265,11 @@ namespace Snake
             Snake.Clear();
             //om starbutton är Enable när spelet startar går de inte att använda up, ner, höger, vänster pilarna
             StartButton.Enabled = false;
-            SnapButton.Enabled = false; 
+            SnapButton.Enabled = false;
             score = 0;
             txtscore.Text = "Score: " + score;
 
-           
+
             //skapar head av instansen circle och ger han en startposition
             Circle head = new Circle { x = 10, y = 5 };
             Snake.Add(head); //lägger till head i listan snake
@@ -298,8 +318,14 @@ namespace Snake
             if (score > highScore)
             {
                 highScore = score;
-                txtHighScore.Text = "High score: " + highScore;
+                txtHighScore.Text = Convert.ToString(highScore);
                 txtHighScore.ForeColor = Color.Red;
+
+                using (StreamWriter writer = new StreamWriter(@"C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\text.txt"))
+                {
+                    writer.WriteLine(highScore);
+                }
+
             }
         }
     }

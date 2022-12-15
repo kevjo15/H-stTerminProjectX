@@ -42,6 +42,7 @@
             this.lblGameOver = new System.Windows.Forms.Label();
             this.picCanvas = new System.Windows.Forms.PictureBox();
             this.SnapButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(617, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(650, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -101,7 +102,7 @@
             this.txtscore.AutoSize = true;
             this.txtscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtscore.ForeColor = System.Drawing.Color.Plum;
-            this.txtscore.Location = new System.Drawing.Point(467, 169);
+            this.txtscore.Location = new System.Drawing.Point(494, 169);
             this.txtscore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtscore.Name = "txtscore";
             this.txtscore.Size = new System.Drawing.Size(76, 20);
@@ -113,12 +114,12 @@
             this.txtHighScore.AutoSize = true;
             this.txtHighScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHighScore.ForeColor = System.Drawing.Color.Plum;
-            this.txtHighScore.Location = new System.Drawing.Point(467, 206);
+            this.txtHighScore.Location = new System.Drawing.Point(593, 204);
             this.txtHighScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtHighScore.Name = "txtHighScore";
-            this.txtHighScore.Size = new System.Drawing.Size(115, 20);
+            this.txtHighScore.Size = new System.Drawing.Size(19, 20);
             this.txtHighScore.TabIndex = 5;
-            this.txtHighScore.Text = "High score: 0";
+            this.txtHighScore.Text = "0";
             // 
             // gameTimer
             // 
@@ -172,12 +173,26 @@
             this.SnapButton.UseVisualStyleBackColor = true;
             this.SnapButton.Click += new System.EventHandler(this.Takesnapshot);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Plum;
+            this.label1.Location = new System.Drawing.Point(494, 204);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Highscore:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(98)))), ((int)(((byte)(5)))));
-            this.ClientSize = new System.Drawing.Size(617, 430);
+            this.ClientSize = new System.Drawing.Size(650, 430);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblGameOver);
             this.Controls.Add(this.debug);
             this.Controls.Add(this.txtHighScore);
@@ -214,6 +229,7 @@
         private System.Windows.Forms.Label debug;
         private System.Windows.Forms.Label lblGameOver;
         private System.Windows.Forms.Button SnapButton;
+        private System.Windows.Forms.Label label1;
     }
 }
 

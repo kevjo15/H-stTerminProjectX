@@ -30,3 +30,15 @@ C:\Users\kevjo\source\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.CoreCompil
 C:\Users\kevjo\source\H-stTerminProjectX\Snake\obj\Debug\Snake.exe
 C:\Users\kevjo\source\H-stTerminProjectX\Snake\obj\Debug\Snake.pdb
 C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.Form1.resources
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\bin\Debug\Snake.exe.config
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\bin\Debug\Snake.exe
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\bin\Debug\Snake.pdb
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.AssemblyReference.cache
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.SuggestedBindingRedirects.cache
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.Form1.resources
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.Form2.resources
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.Properties.Resources.resources
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.GenerateResource.cache
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.exe
+C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.pdb

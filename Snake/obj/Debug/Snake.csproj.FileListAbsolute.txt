@@ -1,6 +1,5 @@
 C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.AssemblyReference.cache
 C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.SuggestedBindingRedirects.cache
-C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.txtScore.resources
 C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.Properties.Resources.resources
 C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.GenerateResource.cache
 C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
@@ -30,3 +29,4 @@ C:\Users\kevjo\source\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.GenerateRe
 C:\Users\kevjo\source\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
 C:\Users\kevjo\source\H-stTerminProjectX\Snake\obj\Debug\Snake.exe
 C:\Users\kevjo\source\H-stTerminProjectX\Snake\obj\Debug\Snake.pdb
+C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.Form1.resources

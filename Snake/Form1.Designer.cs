@@ -1,6 +1,6 @@
 ﻿namespace Snake
 {
-    partial class txtScore
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(txtScore));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.restartButton = new System.Windows.Forms.ToolStripMenuItem();
             this.exitButton = new System.Windows.Forms.ToolStripMenuItem();
             this.StartButton = new System.Windows.Forms.Button();
             this.picCanvas = new System.Windows.Forms.PictureBox();
-            this.txtscoore = new System.Windows.Forms.Label();
+            this.txtscore = new System.Windows.Forms.Label();
             this.txtHighScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.debug = new System.Windows.Forms.Label();
+            this.lblGameOver = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
@@ -68,14 +69,14 @@
             // restartButton
             // 
             this.restartButton.Name = "restartButton";
-            this.restartButton.Size = new System.Drawing.Size(180, 22);
+            this.restartButton.Size = new System.Drawing.Size(110, 22);
             this.restartButton.Text = "Restart";
             this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
             // 
             // exitButton
             // 
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(180, 22);
+            this.exitButton.Size = new System.Drawing.Size(110, 22);
             this.exitButton.Text = "Exit";
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
@@ -102,16 +103,16 @@
             this.picCanvas.TabStop = false;
             this.picCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdateMapGraphics);
             // 
-            // txtscoore
+            // txtscore
             // 
-            this.txtscoore.AutoSize = true;
-            this.txtscoore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtscoore.Location = new System.Drawing.Point(476, 107);
-            this.txtscoore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtscoore.Name = "txtscoore";
-            this.txtscoore.Size = new System.Drawing.Size(68, 20);
-            this.txtscoore.TabIndex = 4;
-            this.txtscoore.Text = "Score: 0";
+            this.txtscore.AutoSize = true;
+            this.txtscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtscore.Location = new System.Drawing.Point(476, 107);
+            this.txtscore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtscore.Name = "txtscore";
+            this.txtscore.Size = new System.Drawing.Size(68, 20);
+            this.txtscore.TabIndex = 4;
+            this.txtscore.Text = "Score: 0";
             // 
             // txtHighScore
             // 
@@ -137,21 +138,33 @@
             this.debug.Size = new System.Drawing.Size(0, 13);
             this.debug.TabIndex = 6;
             // 
-            // txtScore
+            // lblGameOver
+            // 
+            this.lblGameOver.AutoSize = true;
+            this.lblGameOver.BackColor = System.Drawing.Color.Transparent;
+            this.lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameOver.Location = new System.Drawing.Point(45, 126);
+            this.lblGameOver.Name = "lblGameOver";
+            this.lblGameOver.Size = new System.Drawing.Size(0, 73);
+            this.lblGameOver.TabIndex = 7;
+            // 
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 419);
+            this.Controls.Add(this.lblGameOver);
             this.Controls.Add(this.debug);
             this.Controls.Add(this.txtHighScore);
-            this.Controls.Add(this.txtscoore);
+            this.Controls.Add(this.txtscore);
             this.Controls.Add(this.picCanvas);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "txtScore";
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.txtScore_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             this.menuStrip1.ResumeLayout(false);
@@ -169,10 +182,11 @@
         private System.Windows.Forms.ToolStripMenuItem exitButton;
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.PictureBox picCanvas;
-        private System.Windows.Forms.Label txtscoore;
+        private System.Windows.Forms.Label txtscore;
         private System.Windows.Forms.Label txtHighScore;
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label debug;
+        private System.Windows.Forms.Label lblGameOver;
     }
 }
 

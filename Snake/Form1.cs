@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Snake
 {
-    public partial class txtScore : Form
+    public partial class Form1 : Form
     {
         //skapar en lista av circle som kallas snake
         private List<Circle> Snake = new List<Circle>();
@@ -32,7 +32,7 @@ namespace Snake
 
 
 
-        public txtScore()
+        public Form1()
         {
             InitializeComponent();
             new Settings();
@@ -89,16 +89,16 @@ namespace Snake
                     switch (Settings.directions)
                     {
                         case "left": //när ormen rör sig åt vänster tar vi bort en cirkel i X led
-                            Snake[i].x -= 1*velocity;
+                            Snake[i].x -= 1 * velocity;
                             break;
                         case "right": //när ormen rör sig åt höger lägger vi till en cirkel i X led
-                            Snake[i].x += 1*velocity;
+                            Snake[i].x += 1 * velocity;
                             break;
                         case "up":
-                            Snake[i].y -= 1*velocity;
+                            Snake[i].y -= 1 * velocity;
                             break;
                         case "down":
-                            Snake[i].y += 1*velocity;
+                            Snake[i].y += 1 * velocity;
                             break;
                     }
                     if (Snake[i].x < 0)
@@ -118,7 +118,7 @@ namespace Snake
                         Snake[i].y = 0;
                     }
 
-                    if(Collision(Snake[i].x, food.x, 1f) && Collision(Snake[i].y, food.y, 1f))
+                    if (Collision(Snake[i].x, food.x, 1f) && Collision(Snake[i].y, food.y, 1f))
                     {
                         Eat();
                     }
@@ -173,7 +173,7 @@ namespace Snake
             colorTimer += 0.1f;
             //definera x och y, alltså bredden och höjden till food
             var newBrush = Brushes.Red;
-            if(colorTimer >= 8f)
+            if (colorTimer >= 8f)
                 newBrush = Brushes.Orange;
             if (colorTimer >= 16f)
                 newBrush = Brushes.Brown;
@@ -192,8 +192,15 @@ namespace Snake
             RestartGame();
         }
 
+        private void txtScore_Load(object sender, EventArgs e)
+        {
+            lblGameOver.Parent = picCanvas;
+            lblGameOver.BackColor = Color.Transparent;
+        }
+
         private void RestartGame()
         {
+            lblGameOver.Text = "";
             colorTimer = 0f;
             //defalt values vi vill ha när spelet börjar
             maxWidth = picCanvas.Width / Settings.width - 1; // -1 är padding för ormen så den inte kommer för nära väggarna
@@ -203,7 +210,7 @@ namespace Snake
             //om starbutton är Enable när spelet startar går de inte att använda up, ner, höger, vänster pilarna
             StartButton.Enabled = false;
             score = 0;
-            txtscoore.Text = "Score: " + score;
+            txtscore.Text = "Score: " + score;
 
             //skapar head av instansen circle och ger han en startposition
             Circle head = new Circle { x = 10, y = 5 };
@@ -226,7 +233,7 @@ namespace Snake
         {
             colorTimer = 0f; // resets timer för äpplen att röttna
             score += 1; // lägger till poäng för varje äpple som äts
-            txtscoore.Text = "Score: " + score;
+            txtscore.Text = "Score: " + score;
             Circle body = new Circle
             {
                 x = Snake[Snake.Count - 1].x,
@@ -239,10 +246,10 @@ namespace Snake
             //varje food du äter ökar spelets hastighet
             if (gameTimer.Interval == 1) return;
             gameTimer.Interval = gameTimer.Interval - 1;
-
-        }4
+        }
         private void GameOver()
         {
+            lblGameOver.Text = "Game over";
             colorTimer = 0f; // resets timer för äpplen att röttna
             gameTimer.Interval = 40; //återställer spelhastiheten
             gameTimer.Stop(); //stannar speltimern när spelet är över

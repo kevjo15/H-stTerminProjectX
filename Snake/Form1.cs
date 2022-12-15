@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Imaging;
 
 namespace Snake
 {
@@ -199,6 +200,40 @@ namespace Snake
             lblGameOver.BackColor = Color.Transparent;
         }
 
+        private void Takesnapshot(object sender, EventArgs e)
+        {
+            Label caption = new Label();
+            caption.Text = "I Scored: " + score + "and my Highscore is " + highScore;
+            caption.Font = new Font("Ariel", 12, FontStyle.Bold);
+            caption.ForeColor = Color.DarkBlue;
+            caption.AutoSize = false;
+            caption.Width = picCanvas.Width;
+            caption.Height = 30;
+            caption.TextAlign = ContentAlignment.MiddleCenter;
+            picCanvas.Controls.Add(caption);
+
+            //Spara snapshot till en jpeg fil 
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.FileName = "Snake game snapshot";
+            dialog.DefaultExt = "jpg";
+            dialog.Filter = "JPG Image File | *.jpg";
+            dialog.ValidateNames = true;
+
+
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                int width = Convert.ToInt32(picCanvas.Width);
+                int height = Convert.ToInt32(picCanvas.Height);
+                Bitmap bmp = new Bitmap(width, height);
+                picCanvas.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                bmp.Save(dialog.FileName, ImageFormat.Jpeg);
+                picCanvas.Controls.Remove(caption);
+
+
+            }
+        }
+
         private void RestartGame()
         {
             lblGameOver.Text = "";
@@ -210,9 +245,11 @@ namespace Snake
             Snake.Clear();
             //om starbutton är Enable när spelet startar går de inte att använda up, ner, höger, vänster pilarna
             StartButton.Enabled = false;
+            SnapButton.Enabled = false; 
             score = 0;
             txtscore.Text = "Score: " + score;
 
+           
             //skapar head av instansen circle och ger han en startposition
             Circle head = new Circle { x = 10, y = 5 };
             Snake.Add(head); //lägger till head i listan snake
@@ -255,6 +292,7 @@ namespace Snake
             gameTimer.Interval = 40; //återställer spelhastiheten
             gameTimer.Stop(); //stannar speltimern när spelet är över
             StartButton.Enabled = true; //enable start knappen igen så man kan starta ett nytt spel efter man har förlorat
+            SnapButton.Enabled = true;
 
             //skriver ut din highscore
             if (score > highScore)

@@ -1,6 +1,6 @@
 ﻿namespace Snake
 {
-    partial class Form2
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -86,15 +86,15 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Form2
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 747);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "Form1";
+            this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -10,27 +10,29 @@ using System.Windows.Forms;
 
 namespace Snake
 {
-    public partial class Form2 : Form
+    public partial class Form1 : Form
     {
-        public Form2()
+        public Form1()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           Form1 form1 = new Form1();
-            form1.ShowDialog();
+            //Form2 form1 = new Form2();
+            //form1.ShowDialog();
 
-            Form2 form2 = new Form2();
-            form2.Close();
-           
+            this.Hide(); //Hide Form1.
+
+            Form2 from2 = new Form2();
+
+            from2.Show(); // Launch Form2
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-           Application.Exit();
+            Application.Exit();
         }
     }
 }

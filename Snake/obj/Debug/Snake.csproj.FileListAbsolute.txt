@@ -42,3 +42,4 @@ C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.
 C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
 C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.exe
 C:\Users\ensio\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.pdb
+C:\Users\SteamBox\Documents\GitHub\H-stTerminProjectX\Snake\obj\Debug\Snake.Form2.resources

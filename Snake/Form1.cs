@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Snake
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
         //skapar en lista av circle som kallas snake
         private List<Circle> Snake = new List<Circle>();
@@ -21,7 +22,7 @@ namespace Snake
         float maxHeight;
 
         int score;
-        int highScore;
+        public int highScore;
 
         bool left, right, up, down;
 
@@ -32,7 +33,7 @@ namespace Snake
 
 
 
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
             new Settings();

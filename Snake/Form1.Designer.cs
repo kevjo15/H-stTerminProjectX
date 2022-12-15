@@ -1,6 +1,6 @@
 ﻿namespace Snake
 {
-    partial class Form1
+    partial class Form2
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.restartButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,7 +148,7 @@
             this.lblGameOver.Size = new System.Drawing.Size(0, 73);
             this.lblGameOver.TabIndex = 7;
             // 
-            // Form1
+            // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -162,8 +162,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Form2";
+            this.Text = "Form2";
             this.Load += new System.EventHandler(this.txtScore_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
